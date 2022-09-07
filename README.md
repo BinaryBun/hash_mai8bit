@@ -2,7 +2,7 @@
 Basic hash-map[string]string on 8bit hash-function Person.
 
 
-
+## **Example**
 <table>
   <tr>
     <td> <b>Code</b> </td> <td> <b>Output</b> </td>
