@@ -3,7 +3,7 @@ Basic hash-map```[string]string``` on 8bit Pearson's hash-function.
 
 ## **How it worked**
 An array of 255 elements of the ```*List``` type is reserved. <br>
-The hash function has an output range ```[0 ... 255]``` of type ```int```. <br>
+The hash function has an output range ```[0...255]``` of type ```int```. <br>
 If there is a collision, the linked list is expanded by one element at the end.
 
 ![Has map structure](images/map.png)
