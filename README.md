@@ -12,7 +12,7 @@ If there is a collision, the linked list is expanded by one element at the end.
 ## **Example**
 <table>
   <tr>
-    <td> <b>Code</b> </td> <td> <b>Output</b> </td>
+    <td> <b>Code</b> </td><td> <b>Output</b> </td>
   </tr>
   <tr>
   <td>
