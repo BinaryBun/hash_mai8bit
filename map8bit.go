@@ -17,7 +17,7 @@ var table[256]int = func()[256]int {
 }()
 
 type Node struct {
-	key		string
+  key		string
   value string
   next 	*Node
 }
