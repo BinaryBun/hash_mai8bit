@@ -97,7 +97,7 @@ func (l *List) print() []string {
 }
 
 func hash8(message string) int {
-  // person hash
+  // pearson hash
   // using global table
   var hash int = len(message)%256
 

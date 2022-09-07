@@ -1,5 +1,5 @@
 ## **About**
-Basic hash-map[string]string on 8bit hash-function Person.
+Basic hash-map[string]string on 8bit Pearson's hash-function.
 
 
 ## **Example**
