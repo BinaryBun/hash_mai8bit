@@ -24,7 +24,7 @@ func example() {
 
   ```bash
 1
-[hello world !]
+["hello" "world" "!"]
 ```
 </td>
 </tr>
