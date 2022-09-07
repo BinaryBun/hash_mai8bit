@@ -7,7 +7,6 @@ The hash function has an output range ```[0 ... 255]``` of type ```int```. <br>
 If there is a collision, the linked list is expanded by one element at the end.
 
 ![Has map structure](images/map.png)
-<center> Has map structure </center>
 
 
 ## **Example**
