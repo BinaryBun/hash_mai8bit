@@ -17,9 +17,9 @@ var table[256]int = func()[256]int {
 }()
 
 type Node struct {
-  key		string
+  key   string
   value string
-  next 	*Node
+  next  *Node
 }
 
 type List struct {
@@ -27,83 +27,83 @@ type List struct {
 }
 
 type Map struct {
-	map_list	[256]*List
-	len				int64
+  map_list  [256]*List
+  len       int64
 }
 
 func (m *Map) insert(key, val string) {
 	if m.map_list[hash8(key)] == nil {
-		m.map_list[hash8(key)] = &List{}
+    m.map_list[hash8(key)] = &List{}
 	}
 	m.map_list[hash8(key)].add(key, val, m)
 }
 
 func (m *Map) get_value(key string) string {
-	if m.map_list[hash8(key)] == nil { panic("Map is nil!!") }
+  if m.map_list[hash8(key)] == nil { panic("Map is nil!!") }
 
-	current := m.map_list[hash8(key)].head
-	if current != nil && current.key == key { return current.value }
+  current := m.map_list[hash8(key)].head
+  if current != nil && current.key == key { return current.value }
   for current.next != nil {
-		if current.next.key == key { return  current.next.value }
+    if current.next.key == key { return  current.next.value }
     current = current.next
   }
-	panic("Key is missing!!")
+  panic("Key is missing!!")
 }
 
 func (m *Map) keys() []string {
-	var answer [] string
-	for _, data := range(m.map_list) {
-			if data != nil { answer = append(answer, data.print()...)}
-	}
+  var answer [] string
+  for _, data := range(m.map_list) {
+    if data != nil { answer = append(answer, data.print()...)}
+  }
 
-	return answer
+  return answer
 }
 
 func (l *List) add(key, val string, m *Map) {
   new_data := &Node{value: val, key: key}
   if l.head == nil {
     l.head = new_data
-		m.len++
+    m.len++
   } else {
     current := l.head
     for current.next != nil {
-			if key == current.key {
-				current.value = val
-				return
-			}
+      if key == current.key {
+        current.value = val
+        return
+      }
       current = current.next
     }
-		if key == current.key {
-			current.value = val
-			return
-		}
+    if key == current.key {
+      current.value = val
+      return
+    }
     current.next = new_data
-		m.len++
+    m.len++
   }
 }
 
 func (l *List) print() []string {
-	var result []string
+  var result []string
   current := l.head
   if current != nil {
-		result = append(result, current.key)
+    result = append(result, current.key)
   }
   for current.next != nil {
-		result = append(result, current.next.key)
+    result = append(result, current.next.key)
     current = current.next
   }
 
-	return result
+  return result
 }
 
 func hash8(message string) int {
-	// person hash
+  // person hash
   // using global table
-	var hash int = len(message)%256
+  var hash int = len(message)%256
 
-	for _, value := range(message) {
-		hash = table[(hash + int(value))%256]
-	}
+  for _, value := range(message) {
+    hash = table[(hash + int(value))%256]
+  }
 
-	return hash
+  return hash
 }
