@@ -27,7 +27,7 @@ func example() {
   data.insert("hello", "2")
   data.insert("!", "3")
 
-  fmt.Println(data.get_value("world"))
+  fmt.Println(data.get_value("hello"))
   fmt.Println(data.keys())
 }
 ```
@@ -35,7 +35,7 @@ func example() {
   <td>
 
   ```bash
-1
+2
 ["hello" "world" "!"]
 ```
   </td>
