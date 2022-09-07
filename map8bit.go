@@ -32,10 +32,10 @@ type Map struct {
 }
 
 func (m *Map) insert(key, val string) {
-	if m.map_list[hash8(key)] == nil {
+  if m.map_list[hash8(key)] == nil {
     m.map_list[hash8(key)] = &List{}
-	}
-	m.map_list[hash8(key)].add(key, val, m)
+  }
+  m.map_list[hash8(key)].add(key, val, m)
 }
 
 func (m *Map) get_value(key string) string {
