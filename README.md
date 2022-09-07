@@ -1,12 +1,11 @@
 <table>
   <tr>
-    <td> **Code** </td> <td> **Output** </td>
+    <td> <b>Code</b> </td> <td> <b>Output</b> </td>
   </tr>
   <tr>
   <td>
 
-  ^ Extra blank line above!
-  ```go
+```go
 // ...
 // some code
 func example() {
@@ -20,18 +19,13 @@ func example() {
   fmt.Println(data.keys())
 }
 ```
-  V Extra blank line below!
-
   </td>
   <td>
 
-  ^ Extra blank line above!
   ```bash
 1
 [hello world !]
 ```
-V Extra blank line below!
-
 </td>
 </tr>
 </table>
