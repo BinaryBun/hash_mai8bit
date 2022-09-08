@@ -50,6 +50,18 @@ func (m *Map) get_value(key string) string {
   panic("Key is missing!!")
 }
 
+func (m *Map) delete(key string) {
+  elem := m.map_list[hash8(key)]
+  if elem == nil { panic("Map is nil!!") }
+  if elem.head.key == key && elem.head.next == nil {
+    elem = nil
+  } else if elem.head.next != nil {
+    elem.delete(key)
+  } else {
+    panic("Key is missing!!")
+  }
+}
+
 func (m *Map) keys() []string {
   var answer [] string
   for _, data := range(m.map_list) {
@@ -57,6 +69,22 @@ func (m *Map) keys() []string {
   }
 
   return answer
+}
+
+func (l *List) delete(key string) {
+  current := l.head
+  if current.key == key {
+    l.head = l.head.next
+    return
+  }
+  for current.next != nil {
+    if current.next.key == key {
+      current.next = current.next.next
+      return
+    }
+    current = current.next
+  }
+  panic("Key is missing!!")
 }
 
 func (l *List) add(key, val string, m *Map) {
