@@ -54,9 +54,11 @@ func (m *Map) delete(key string) {
   elem := m.map_list[hash8(key)]
   if elem == nil { panic("Map is nil!!") }
   if elem.head.key == key && elem.head.next == nil {
-    elem = nil
+    m.map_list[hash8(key)]  = nil
+    m.len--
+    fmt.Println("+")
   } else if elem.head.next != nil {
-    elem.delete(key)
+    elem.delete(key, m)
   } else {
     panic("Key is missing!!")
   }
@@ -71,15 +73,17 @@ func (m *Map) keys() []string {
   return answer
 }
 
-func (l *List) delete(key string) {
+func (l *List) delete(key string, m *Map) {
   current := l.head
   if current.key == key {
     l.head = l.head.next
+    m.len--
     return
   }
   for current.next != nil {
     if current.next.key == key {
       current.next = current.next.next
+      m.len--
       return
     }
     current = current.next
